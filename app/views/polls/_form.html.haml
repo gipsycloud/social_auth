@@ -1,0 +1,17 @@
+= simple_form_for(@poll, html: { class: 'form-horizontal' }, wrapper: :horizontal_form) do |f|
+  = render 'shared/errors', object: @poll
+
+  = f.input :topic, rows: 3, required: true, class: 'form-control'
+
+  .panel.panle-default
+    .panel-heading
+      %h4 Options
+    .panel-body
+      = f.simple_fields_for :vote_options do |vop|
+        = render 'vote_option_fields', f: vop
+      
+      .links
+        = link_to_add_association 'add option', f, :vote_options
+  
+  = link_to 'Back', polls_path,class: 'btn btn-default'
+  = f.submit class: 'btn btn-primary'

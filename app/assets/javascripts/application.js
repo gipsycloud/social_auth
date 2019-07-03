@@ -14,3 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui/effects/effect-highlight
+//= require turbolinks
+//= require cocoon

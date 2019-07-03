@@ -1,0 +1,8 @@
+- content_for :page_header, 'Participate in our polls right now!'
+- @polls.each do |poll|
+  .well
+    %h2
+      = poll.topic
+
+    = link_to 'edit', edit_poll_path(poll), class: 'btn btn-primary btn-sm'
+    = link_to 'delete', poll_path(poll), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'}
