@@ -3,6 +3,11 @@
   .well
     %h2
       = poll.topic
-
-    = link_to 'edit', edit_poll_path(poll), class: 'btn btn-primary btn-sm'
-    = link_to 'delete', poll_path(poll), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'}
+    %p
+      - if current_user
+        = link_to 'Participate', poll_path(poll), class: 'btn btn-primary btn-sm blog'
+      - else
+        Please sign in via #{link_to 'Facebook', '/auth/facebook'} to participate in this poll.
+    .btn-group  
+      = link_to 'edit', edit_poll_path(poll), class: 'btn btn-primary btn-sm'
+      = link_to 'delete', poll_path(poll), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'}
